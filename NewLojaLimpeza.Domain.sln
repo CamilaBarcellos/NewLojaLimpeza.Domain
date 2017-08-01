@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26430.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewLojaLimpeza.Domain", "NewLojaLimpeza.Domain\NewLojaLimpeza.Domain.csproj", "{A9451031-D7CF-427A-B60A-3D8B330AA08D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewLojaLimpezaUnitTest", "ProdutoUnitTest\NewLojaLimpezaUnitTest.csproj", "{E05CE819-10E2-407E-BCE6-A72CCFB57F0D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{A9451031-D7CF-427A-B60A-3D8B330AA08D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9451031-D7CF-427A-B60A-3D8B330AA08D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9451031-D7CF-427A-B60A-3D8B330AA08D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E05CE819-10E2-407E-BCE6-A72CCFB57F0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E05CE819-10E2-407E-BCE6-A72CCFB57F0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E05CE819-10E2-407E-BCE6-A72CCFB57F0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E05CE819-10E2-407E-BCE6-A72CCFB57F0D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
