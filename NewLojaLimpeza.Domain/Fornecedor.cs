@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace NewLojaLimpeza.Domain
 {
-    public class Categoria
+    public class Fornecedor : Pessoa
     {
-        public string IdCategoria { get; set; }
-        public string Nome { get; set; }
+        public string Cnpj { get; set; }
+        public string NomeFantasia { get; set; }
     }
 }

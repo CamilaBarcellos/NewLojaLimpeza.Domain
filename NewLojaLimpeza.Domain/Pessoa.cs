@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace NewLojaLimpeza.Domain
 {
-    public class Categoria
+    public abstract class Pessoa
     {
-        public string IdCategoria { get; set; }
         public string Nome { get; set; }
+        public string Telefone { get; set; }
+        public Endereço Endereco { get; set; }
     }
 }

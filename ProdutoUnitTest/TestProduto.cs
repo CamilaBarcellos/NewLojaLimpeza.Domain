@@ -7,7 +7,7 @@ namespace ProdutoUnitTest
     public class TestProduto
     {
         [TestMethod]
-        public void AdicionarEstoque()
+        public void AdicionarEstoqueTest()
         {
             var produto = new NewLojaLimpeza.Domain.Produto()
             {
@@ -23,7 +23,7 @@ namespace ProdutoUnitTest
 
         [TestMethod]
         [ExpectedException(typeof(Exception), "A quantidade deve ser maior que 0.")]
-        public void AdicionarNegativoEstoque()
+        public void AdicionarNegativoEstoqueTest()
         {
             var produto = new NewLojaLimpeza.Domain.Produto()
             {
@@ -36,7 +36,7 @@ namespace ProdutoUnitTest
         }
 
         [TestMethod]
-        public void RemoverEstoque()
+        public void RemoverEstoqueTest()
         {
             var produto = new NewLojaLimpeza.Domain.Produto()
             {
@@ -50,7 +50,7 @@ namespace ProdutoUnitTest
 
         [TestMethod]
         [ExpectedException(typeof(Exception), "A quantidade deve ser maior que 0.")]
-        public void RemoverNegativoEstoque()
+        public void RemoverNegativoEstoqueTest()
         {
             var produto = new NewLojaLimpeza.Domain.Produto()
             {

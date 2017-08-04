@@ -14,7 +14,6 @@ namespace NewLojaLimpeza.Domain
         public DateTime DataValidade { get; set; }
         public double Preco { get; set; }
         public int QuantidadeEstoque { get; set; }
-
         public Categoria Categoria { get; set; }
 
 
@@ -33,8 +32,6 @@ namespace NewLojaLimpeza.Domain
             else
                 throw new Exception("A quantidade deve ser maior que 0.");
         }
-
-
 
     }
 }
