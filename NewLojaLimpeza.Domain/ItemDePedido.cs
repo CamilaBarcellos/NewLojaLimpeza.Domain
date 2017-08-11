@@ -17,6 +17,14 @@ namespace NewLojaLimpeza.Domain
         public int Quantidade { get { return this.quantidade; } }
         public double ValorTotalItem { get { return this.valorTotalItem; } }
 
+        public ItemDePedido(Produto produto, int quantidade)
+        {
+            this.produto = produto;
+            this.quantidade = quantidade;
+
+            InserirProduto(quantidade);
+        }
+
                       
         public void InserirProduto(int quantidade)
         {
@@ -56,9 +64,9 @@ namespace NewLojaLimpeza.Domain
         }
         
 
-        public void CalcularValorTotalItem()
+        private void CalcularValorTotalItem()
         {
-            this.valorTotalItem = (Produto.Preco * this.quantidade);
+            this.valorTotalItem = (this.Produto.Preco * this.Quantidade);
         }       
     }
 }

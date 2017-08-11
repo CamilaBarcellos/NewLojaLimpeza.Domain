@@ -30,7 +30,7 @@ namespace ProdutoUnitTest
             };
                         
             item.produtosItemLista.Add(itemPedido);
-            Assert.IsNotNull(item.produtosItemLista);            
+            Assert.AreEqual(1, item.produtosItemLista.Count);            
         }
 
         
@@ -44,22 +44,13 @@ namespace ProdutoUnitTest
                 Preco = 2
             };
 
-            var itemPedido = new NewLojaLimpeza.Domain.ItemDePedido()
-            {
-                produto = produto,
-                quantidade = 5,
-                valorTotalItem = 10
-            };
+            var itemPedido = new NewLojaLimpeza.Domain.ItemDePedido(produto, 5);
 
-            var item = new NewLojaLimpeza.Domain.Pedido()
-            {                
-                ValorTotal = 0
-            };
+            var pedido = new NewLojaLimpeza.Domain.Pedido();
 
-            item.produtosItemLista.Add(itemPedido);
-            item.CalcularValorTotal();
+            pedido.AdicionarItem(itemPedido);
 
-            Assert.AreEqual(item.ValorTotal, 10);
+            Assert.AreEqual(10, pedido.ValorTotal);
             
         }
 

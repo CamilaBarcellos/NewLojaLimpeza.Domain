@@ -18,13 +18,9 @@ namespace ProdutoUnitTest
                 Preco = 1.99                                
             };
 
-            var item = new NewLojaLimpeza.Domain.ItemDePedido()
-            {
-                produto = produto,
-            };
+            var item = new NewLojaLimpeza.Domain.ItemDePedido(produto, 5);
 
-            item.InserirProduto(5);
-            Assert.AreEqual(item.quantidade, 5);
+            Assert.AreEqual(5, item.quantidade);
         }
 
         //------------------------------------------------------------------------------------------
