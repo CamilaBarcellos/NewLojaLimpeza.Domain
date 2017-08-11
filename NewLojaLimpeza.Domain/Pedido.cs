@@ -17,7 +17,7 @@ namespace NewLojaLimpeza.Domain
 
         public void CalcularValorTotal()
         {
-   //         ValorTotal = 
+            ValorTotal = produtosItemLista.Sum(x => x.valorTotalItem);
         }
 
 

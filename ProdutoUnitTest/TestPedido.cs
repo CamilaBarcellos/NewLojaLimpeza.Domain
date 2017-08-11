@@ -34,6 +34,36 @@ namespace ProdutoUnitTest
         }
 
         
+        [TestMethod]
+        public void CalcularValorTotalTest()
+        {
+            var produto = new NewLojaLimpeza.Domain.Produto()
+            {
+                IdProduto = "Dt001",
+                QuantidadeEstoque = 15,
+                Preco = 2
+            };
+
+            var itemPedido = new NewLojaLimpeza.Domain.ItemDePedido()
+            {
+                produto = produto,
+                quantidade = 5,
+                valorTotalItem = 10
+            };
+
+            var item = new NewLojaLimpeza.Domain.Pedido()
+            {                
+                ValorTotal = 0
+            };
+
+            item.produtosItemLista.Add(itemPedido);
+            item.CalcularValorTotal();
+
+            Assert.AreEqual(item.ValorTotal, 10);
+            
+        }
+
+
        
     }
 }

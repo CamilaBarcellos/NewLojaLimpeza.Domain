@@ -31,6 +31,8 @@ namespace NewLojaLimpeza.Domain
                 produto.RemoverEstoque(quantidade);
                 this.quantidade = quantidade;
             }
+
+            CalcularValorTotalItem();
         }
 
 
@@ -46,8 +48,11 @@ namespace NewLojaLimpeza.Domain
                 throw new Exception("Não existe essa quantidade de produtos.");
 
             else if (quantidadeRemovida <= 0)
+            {
                 throw new Exception("A quantidade deve ser maior que 0.");
+            }
 
+            CalcularValorTotalItem();
         }
         
 
