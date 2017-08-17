@@ -11,4 +11,5 @@ namespace NewLojaLimpeza.Domain
         public string IdCategoria { get; set; }
         public string Nome { get; set; }
     }
+       
 }

@@ -8,29 +8,19 @@ namespace ProdutoUnitTest
     public class TestPedido
     {
         [TestMethod]
-        public void IncluirItemDePedidoTest()
+        public void AdicionarItemTest()
         {
-            var produto = new NewLojaLimpeza.Domain.Produto()
+            var produto = new Produto
             {
-                IdProduto = "Dt001",
-                QuantidadeEstoque = 15,
-                Preco = 2
+                QuantidadeEstoque = 10
             };
 
-            var itemPedido = new NewLojaLimpeza.Domain.ItemDePedido()
-            {
-                produto = produto,
-                quantidade = 5
-            };
-            itemPedido.CalcularValorTotalItem();
+            var itemPedido = new NewLojaLimpeza.Domain.ItemDePedido(produto, 1);
+            var item = new NewLojaLimpeza.Domain.Pedido(itemPedido, 1);
 
-            var item = new NewLojaLimpeza.Domain.Pedido()
-            {
-                ValorTotal = 0
-            };
-                        
-            item.produtosItemLista.Add(itemPedido);
-            Assert.AreEqual(1, item.produtosItemLista.Count);            
+            item.AdicionarItem(itemPedido);
+
+            Assert.AreEqual(1, item.produtosItemLista.Count);
         }
 
         
@@ -44,17 +34,14 @@ namespace ProdutoUnitTest
                 Preco = 2
             };
 
+            
             var itemPedido = new NewLojaLimpeza.Domain.ItemDePedido(produto, 5);
 
-            var pedido = new NewLojaLimpeza.Domain.Pedido();
-
-            pedido.AdicionarItem(itemPedido);
-
+            var pedido = new NewLojaLimpeza.Domain.Pedido(itemPedido, 1);
+            
+            
             Assert.AreEqual(10, pedido.ValorTotal);
             
-        }
-
-
-       
+        }       
     }
 }

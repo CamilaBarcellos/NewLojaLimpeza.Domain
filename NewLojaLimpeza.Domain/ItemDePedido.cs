@@ -12,6 +12,7 @@ namespace NewLojaLimpeza.Domain
         public int quantidade;
         public double valorTotalItem;
         public int quantidadeRemovida;
+        private Produto produto1;
 
         public Produto Produto { get { return this.produto; } }
         public int Quantidade { get { return this.quantidade; } }
@@ -21,11 +22,14 @@ namespace NewLojaLimpeza.Domain
         {
             this.produto = produto;
             this.quantidade = quantidade;
-
             InserirProduto(quantidade);
         }
 
-                      
+        public ItemDePedido(Produto produto1)
+        {
+            this.produto1 = produto1;
+        }
+
         public void InserirProduto(int quantidade)
         {
             if (quantidade > produto.QuantidadeEstoque)
@@ -46,19 +50,19 @@ namespace NewLojaLimpeza.Domain
 
         public void RemoverProduto(int quantidadeRemovida)
         {
-            if (quantidadeRemovida <= quantidade)
-            {
-                quantidade -= quantidadeRemovida;
-                produto.AdicionarEstoque(quantidadeRemovida);
-            }
-
-            else if (quantidadeRemovida > quantidade)
-                throw new Exception("Não existe essa quantidade de produtos.");
+            if (quantidadeRemovida > quantidade)
+                throw new Exception("Não existe essa quantidade de produtos."); 
 
             else if (quantidadeRemovida <= 0)
             {
                 throw new Exception("A quantidade deve ser maior que 0.");
             }
+
+            else if (quantidadeRemovida <= quantidade)
+            {                
+                produto.AdicionarEstoque(quantidadeRemovida);
+                this.quantidade -= quantidadeRemovida;
+            } 
 
             CalcularValorTotalItem();
         }

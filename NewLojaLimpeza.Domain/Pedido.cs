@@ -12,11 +12,24 @@ namespace NewLojaLimpeza.Domain
         public DateTime DataPedido { get; set; }
         public double ValorTotal { get; set; }
 
-        private List<ItemDePedido> produtosItemLista = new List<ItemDePedido>();
+        private List<ItemDePedido> ProdutosItemLista { get; set; }
+        
+        public List<ItemDePedido> produtosItemLista
+        {
+            get
+            {
+                return this.ProdutosItemLista;
+            }
+            set
+            {
+                this.ProdutosItemLista = ProdutosItemLista;
+            }
+        }
+
 
         public void AdicionarItem(ItemDePedido item)
         {
-            this.produtosItemLista.Add(item);
+            this.ProdutosItemLista.Add(item);
             CalcularValorTotal();
         }
 
@@ -26,7 +39,7 @@ namespace NewLojaLimpeza.Domain
             CalcularValorTotal();
         }
 
-        private void CalcularValorTotal()
+        public void CalcularValorTotal()
         {
             ValorTotal = produtosItemLista.Sum(x => x.valorTotalItem);
         }
