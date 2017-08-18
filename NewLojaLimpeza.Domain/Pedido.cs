@@ -8,6 +8,9 @@ namespace NewLojaLimpeza.Domain
 {
     public class Pedido
     {
+        public Pedido pedido = new Pedido();
+        
+
         public int NumeroPedido { get; set; }
         public DateTime DataPedido { get; set; }
         public double ValorTotal { get; set; }
@@ -22,7 +25,7 @@ namespace NewLojaLimpeza.Domain
             }
             set
             {
-                this.ProdutosItemLista = ProdutosItemLista;
+                this.ProdutosItemLista = produtosItemLista;
             }
         }
 
@@ -35,13 +38,13 @@ namespace NewLojaLimpeza.Domain
 
         public void RemoverItem(ItemDePedido item)
         {
-            this.produtosItemLista.Remove(item);
+            this.ProdutosItemLista.Remove(item);
             CalcularValorTotal();
         }
 
         public void CalcularValorTotal()
         {
-            ValorTotal = produtosItemLista.Sum(x => x.valorTotalItem);
+            ValorTotal = ProdutosItemLista.Sum(x => x.valorTotalItem);
         }
 
 
